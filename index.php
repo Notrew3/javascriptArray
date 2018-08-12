@@ -9,21 +9,15 @@
 		<?php
 
 			$phpArray = array('Manga' , 'Melancia', 'Uva' );
+			 
 		?>
 		
 		<p id="demo"></p>
 	
 		<script type="text/javascript">
-			
-			var javaArray = [];
-			<?php
-				foreach ($phpArray as $value) {
-			?>
-				javaArray.push("<?php echo $value; ?>");
-			<?php
-				}
-			?>
-			document.getElementById("demo").innerHTML = javaArray;
+			var text = '<?php echo json_encode($phpArray, JSON_FORCE_OBJECT); ?>';	
+			var obj = JSON.parse(text);					
+			document.getElementById("demo").innerHTML = obj[0] + "," + obj[1] + "," + obj[2];
 		
 		</script>
 	</body>
