@@ -50,7 +50,11 @@
 			console.log(obj);
 			/*Imprime na tela no elemento <p> com id "demo" o index 0 do obj*/		
 			document.getElementById("demo").innerHTML = "Nome: " + obj[0].nome + " Idade: " + obj[0].idade;	
-
+/*******************************foreach para seu array, ver no console do navegador *******************/
+			
+			obj.forEach((cur,idx,arr) => console.log(cur.idade,cur.nome));
+			
+/******************************************************************************************************/
 		</script>
 
 	</body>
