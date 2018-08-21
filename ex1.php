@@ -41,15 +41,19 @@
 		<p id="demo"></p>	
 	
 		<script type="text/javascript">
-
+			var i = 0;
 			/*Cria a variavel text com o valor da variavel $json do PHP que é uma STRING */
-			var text = '<?php echo $json; ?>';	
-			/*Faz a conversao da variavel text que era uma STRING JSON para um OBJETO JSON para a variavel obj */
-			var obj = JSON.parse(text)	;
-			/*Mostra no console o obj JSON*/
-			console.log(obj);
-			/*Imprime na tela no elemento <p> com id "demo" o index 0 do obj*/		
-			document.getElementById("demo").innerHTML = "Nome: " + obj[0].nome + " Idade: " + obj[0].idade;	
+			var text = <?php echo $json; ?>;	
+			/*Mostra no console o text JSON*/
+			console.log(text);
+			text.forEach((cur,idx,arr) => console.log(cur.idade,cur.nome));
+			/*Imprime na tela no elemento <p> com id "demo" o index 0 do text*/	
+			var html = "";
+			text.forEach(function(elemento,index){
+				html += "Nome: " + elemento.nome + " Idade: " + elemento.idade + "<br>";
+			});			
+			document.getElementById("demo").innerHTML = html;	
+		
 
 		</script>
 
